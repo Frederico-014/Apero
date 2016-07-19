@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 USERNAME='root'
 PASSWORD=''
-DBNAME='db_programer'
+DBNAME='db_apero'
 HOST='localhost'
 
 USER_USERNAME='root'

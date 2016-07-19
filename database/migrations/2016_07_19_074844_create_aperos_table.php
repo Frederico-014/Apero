@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAperoTable extends Migration
+class CreateAperosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class CreateAperoTable extends Migration
      */
     public function up()
     {
-        Schema::create('apero', function (Blueprint $table) {
+        Schema::create('aperos', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id')->nullable();
             $table->unsignedInteger('category_id')->nullable();
@@ -35,6 +35,6 @@ class CreateAperoTable extends Migration
      */
     public function down()
     {
-        Schema::drop('apero');
+        Schema::drop('aperos');
     }
 }

@@ -16,7 +16,7 @@ class CreateAperoTagTable extends Migration
             $table->unsignedInteger('apero_id');
             $table->unsignedInteger('tag_id');
             $table->unique(['apero_id','tag_id']);
-            $table->foreign('apero_id')->references('id')->on('apero')->onDelete('CASCADE');
+            $table->foreign('apero_id')->references('id')->on('aperos')->onDelete('CASCADE');
             $table->foreign('tag_id')->references('id')->on('tags')->onDelete('CASCADE');
         });
     }
@@ -30,4 +30,5 @@ class CreateAperoTagTable extends Migration
     {
         Schema::drop('apero_tag');
     }
+
 }
