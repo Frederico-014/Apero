@@ -15,6 +15,8 @@
     <nav>
         <h2>
             <a href="{{url('')}}">Accueil</a>
+            <a href="{{url('search')}}">Chercher apéro</a>
+            <a href="{{url('new')}}">Chercher apéro</a>
             @if(Auth::guest())
                 <a href="{{url('login')}}">Se connecter</a>
             @else
@@ -23,6 +25,12 @@
         </h2>
     </nav>
 </header>
+
+<div class="containeur grid-2-1">
+    <section>
+        @yield('content')
+    </section>
+</div>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
