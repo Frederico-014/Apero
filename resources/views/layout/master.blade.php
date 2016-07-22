@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Apero</title>
+    <link rel="stylesheet" href="{{url('assets/css/app.min.css')}}">
+</head>
+<body>
+
+<header>
+    <h1>Apéros tchenique</h1>
+    <nav>
+        <h2>
+            <a href="{{url('')}}">Accueil</a>
+            @if(Auth::guest())
+                <a href="{{url('login')}}">Se connecter</a>
+            @else
+                <a href="{{url('logout')}}">Se deconnecter</a>
+            @endif
+        </h2>
+    </nav>
+</header>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="{{url('assets/js/app.min.js')}}"></script>
+</body>
+</html>
