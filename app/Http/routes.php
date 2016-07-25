@@ -11,6 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('front.index');
-});
+Route::pattern('id','[1-9][0-9]*');
+
+Route::get('/','FrontController@index');
+
+Route::get('new','FrontController@newEvent');
+
+Route::post('new','FrontController@createEvent');
+
+Route::get('search','FrontController@searchApero');
+
+Route::get('search/{id}','FrontController@showApero');
+

@@ -16,7 +16,7 @@
         <h2>
             <a href="{{url('')}}">Accueil</a>
             <a href="{{url('search')}}">Chercher apéro</a>
-            <a href="{{url('new')}}">Chercher apéro</a>
+            <a href="{{url('new')}}">Organiser apéro</a>
             @if(Auth::guest())
                 <a href="{{url('login')}}">Se connecter</a>
             @else
