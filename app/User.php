@@ -27,4 +27,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Apero');
     }
+
+    public function isAdmin($role='admin')
+    {
+        return $this->role == $role;
+    }
 }

@@ -11,7 +11,7 @@
 <body>
 
 <header>
-    <h1>Apéros tchenique</h1>
+    <h1>Apéros technique</h1>
     <nav>
         <h2>
             <a href="{{url('')}}">Accueil</a>
@@ -20,6 +20,9 @@
             @if(Auth::guest())
                 <a href="{{url('login')}}">Se connecter</a>
             @else
+                @if(Auth::user() && Auth::user()->isAdmin())
+                    <a href="#">Administration du site</a>
+                @endif
                 <a href="{{url('logout')}}">Se deconnecter</a>
             @endif
         </h2>

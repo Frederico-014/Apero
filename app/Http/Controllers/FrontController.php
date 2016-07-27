@@ -15,9 +15,8 @@ class FrontController extends Controller
 {
     public function index()
     {
-        $aperos=Apero::orderBy("date")->take(3)->get();
+        $aperos=Apero::online()->where('status','=','published')->orderBy("date")->take(3)->get();
 
-        
         return view('front.index',['aperos'=>$aperos]);
     }
 
@@ -34,29 +33,17 @@ class FrontController extends Controller
 
         $this->validate($request,[
             'title'  =>'required',
-            'username'  =>'required',
             'email' =>'required|email',
             'description' =>'required'
         ]);
 
-        $username=$request->username;
-        $email=$request->email;
+
         $title=$request->title;
         $catogory_id=$request->category_id;
         $date=$request->date;
         $content=$request->description;
+        $id=$request->user()->id;
         $uri='';
-
-
-
-        $user=[
-            'username'  => $username,
-            'email'     => $email
-        ];
-        User::create($user);
-
-        $user_id=User::where('email',$email)->get();
-
 
 
         if (!is_null($request->picture))
@@ -78,7 +65,7 @@ class FrontController extends Controller
         $new_Event=[
 
             'category_id'=>$catogory_id,
-            '$user_id'=>$user_id,
+            'user_id'=>$id,
             'title'=>$title,
             'content'=>$content,
             'date'=>$date,
@@ -99,14 +86,20 @@ class FrontController extends Controller
     }
 
 
-    public function searchApero()
+    public function search(Request $request)
     {
-        $aperos=Apero::paginate(5);
+        $aperos = [];
+        
+        if(!empty($request->all()))
+             $aperos=Apero::search($request->search)->orderBy("date")->paginate(5);
+
 
 
 
         return view('front.search',['aperos'=>$aperos]);
     }
+
+
 
     public function showApero($id)
     {

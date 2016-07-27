@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Apero extends Model
 {
-    protected $fillable = ['title','content','date','category_id','uri'];
+    protected $fillable = ['title','content','date','user_id','category_id','uri'];
 
     public function category()
     {
@@ -28,4 +28,17 @@ class Apero extends Model
         return Carbon::parse($value)->format('d-m-Y');
     }
 
+    public function scopeonline($query)
+
+    {
+        $now=Carbon::now();
+        return $query->where('date','>',$now);
+    }
+
+    public function scopesearch($query, $word)
+    {
+        return $query   ->where('title','like','%'.$word.'%')
+                        ->orWhere('content','like','%'.$word.'%');
+
+    }
 }

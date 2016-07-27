@@ -1,11 +1,18 @@
 @extends('layout.master')
 
 @section('content')
-
-    @forelse($aperos as $apero)
-        <h3><a href="{{url('search',$apero->id)}}">{{$apero->title}}</a></h3>
-    @empty
-        <h3>Aucun Apero</h3>
-    @endforelse
-        <h4>{{$aperos->links()}}</h4>
+    <form action="{{url('search')}}" method="post">
+        {{csrf_field()}}
+        <input type="text" autocomplete="off" name="search" autofocus="" />
+        <input type="submit" value="rechercher">
+    </form>
+    @if(!empty($aperos))
+            <ul>
+                @foreach($aperos as $apero)
+                <li><a href="{{ url('search',$apero->id)}}">{{$apero->title}}</a></li>
+                @endforeach
+            </ul>
+            {{$aperos->links()}}
+    @else
+    @endif
 @endsection

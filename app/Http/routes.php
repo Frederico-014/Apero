@@ -19,7 +19,14 @@ Route::get('new','FrontController@newEvent');
 
 Route::post('new','FrontController@createEvent');
 
-Route::get('search','FrontController@searchApero');
+Route::any('search','FrontController@search');
+
+
 
 Route::get('search/{id}','FrontController@showApero');
+
+
+Route::any('login','LoginController@login');
+
+Route::get('logout','LoginController@logout');
 

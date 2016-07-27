@@ -24,9 +24,10 @@ $factory->define(App\Apero::class, function (Faker\Generator $faker) {
     return [
         'Category_id'   => rand(1,3),
         'user_id'       =>1,
+        'status'        =>'published',
         'title'         => $faker->text(50),
         'abstract'      => $faker->text(100),
         'content'       => $faker->text(1000),
-        'date'          =>$faker->dateTime,
+        'date'          =>$faker->dateTimeBetween($startDate='-1years',$endDate='+3years'),
     ];
 });
