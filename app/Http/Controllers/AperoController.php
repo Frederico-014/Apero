@@ -128,6 +128,7 @@ class AperoController extends Controller
     public function update(Request $request, $id)
     {
 
+
         $apero = Apero::find($id);
         $uri = [];
 
@@ -150,8 +151,6 @@ class AperoController extends Controller
 
 
         $update = array_merge($request->all(), $uri);
-
-
 
 
         $apero->update($update);
