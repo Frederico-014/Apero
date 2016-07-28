@@ -12,7 +12,7 @@
                 <li><a href="{{ url('search',$apero->id)}}">{{$apero->title}}</a></li>
                 @endforeach
             </ul>
-            {{$aperos->links()}}
+            {!!$aperos->render()!!}
     @else
     @endif
 @endsection

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Apero extends Model
 {
-    protected $fillable = ['title','content','date','user_id','category_id','uri'];
+    protected $fillable = ['title','abstract','content','date','user_id','category_id','uri','status'];
 
     public function category()
     {
@@ -20,7 +20,7 @@ class Apero extends Model
 
     public function user ()
     {
-        return $this->hasOne('App\User');
+        return $this->belongsTo('App\User');
     }
 
     public function getDateAttribute ($value)
@@ -40,5 +40,18 @@ class Apero extends Model
         return $query   ->where('title','like','%'.$word.'%')
                         ->orWhere('content','like','%'.$word.'%');
 
+    }
+
+    public function isTag($id)
+    {
+        foreach($this->tags as $tag)
+        {
+            if ($tag->id == $id)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

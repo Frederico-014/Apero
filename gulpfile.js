@@ -28,7 +28,7 @@ gulp.task('hello',function()
 
 gulp.task('browserSync', function () {
     browserSync.init({
-        proxy: "student.local"
+        proxy: ""
     });
 });
 

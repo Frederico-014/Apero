@@ -10,4 +10,9 @@ class Category extends Model
     {
         return $this->hasMany('App\Apero');
     }
+
+    public function isCat($id)
+    {
+        return $this->id == $id;
+    }
 }

@@ -14,8 +14,9 @@
     <h1>Admin du site</h1>
     <nav>
         <h2>
-            <a href="{{url('')}}">Accueil</a>
-            <p>hello admin</p>
+            <a href="{{url('')}}">Site public</a>
+            <a href="{{url('admin/Apero')}}">Accueil admin</a>
+            <p>hello {{Auth::user()->username}}</p>
             <a href="{{url('logout')}}">Se deconnecter</a>
         </h2>
     </nav>
@@ -23,6 +24,7 @@
 
 <div class="containeur grid-2-1">
     <section>
+        @include('admin.partials.flash_message')
         @yield('content')
     </section>
 </div>

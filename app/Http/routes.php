@@ -21,12 +21,17 @@ Route::post('new','FrontController@createEvent');
 
 Route::any('search','FrontController@search');
 
-
-
 Route::get('search/{id}','FrontController@showApero');
 
 
 Route::any('login','LoginController@login');
 
 Route::get('logout','LoginController@logout');
+
+
+Route::group(['prefix'=>'admin','middleware'=>'auth'],function ()
+{
+    Route::resource('Apero','AperoController');
+
+});
 

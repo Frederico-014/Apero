@@ -21,7 +21,7 @@
                 <a href="{{url('login')}}">Se connecter</a>
             @else
                 @if(Auth::user() && Auth::user()->isAdmin())
-                    <a href="#">Administration du site</a>
+                    <a href="{{route('admin.Apero.index')}}">Administration du site</a>
                 @endif
                 <a href="{{url('logout')}}">Se deconnecter</a>
             @endif
@@ -31,6 +31,7 @@
 
 <div class="containeur grid-2-1">
     <section>
+        @include('admin.partials.flash_message')
         @yield('content')
     </section>
 </div>
