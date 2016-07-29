@@ -57,7 +57,7 @@
                 <input name="pictureModify" type="file">
             </p>
         @endif
-        <input type="submit">
+        <input class="btn btn-success" type="submit">
 
     </form>
 @endsection

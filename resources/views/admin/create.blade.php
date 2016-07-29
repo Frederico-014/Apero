@@ -57,7 +57,7 @@
             @endif
         </p>
 
-        <input type="submit" value="Ajouter">
+        <input class="btn btn-success" type="submit" value="Ajouter">
 
     </form>
 @endsection

@@ -17,7 +17,7 @@
                 </div>
             @endif
             <p>
-                <label for="title">Titre </label>
+                <label  for="title">Titre </label>
                 <input id="title" type="text" name="title" value="{{old('title')}}">
             </p>
             <p>
@@ -42,7 +42,7 @@
                 </select>
             </p>
             <p>
-                <label for="Content">Tags: </label><br/>
+                <label class="label panel-primary" for="Content">Tags: </label><br/>
 
                 @foreach($tags as $id =>$name)
                     {{$name}}<input  id="{{$id}}" TYPE=CHECKBOX NAME="tags[]" value="{{$id}}" {{!empty(old('tags'))&& in_array($id,old('tags'))? 'checked':''}}><br/>
@@ -55,7 +55,7 @@
                 @endif
             </p>
 
-            <input type="submit" value="Ajouter">
+            <input class="btn btn-success" type="submit" value="Ajouter">
 
         </form>
     @endif

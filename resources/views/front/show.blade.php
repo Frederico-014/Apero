@@ -1,24 +1,28 @@
 @extends('layout.master')
 
 @section('content')
-    <div>
-        <h3>{{$apero->title}}</h3>
-        <div>
+    <div class="panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{$apero->title}}</h3>
+        </div>
+        <div class="panel-body">
             @if(!empty($apero->uri))
                 <img src="{{url('assets',['images',$apero->uri])}}" alt="{{$apero->uri}}">
             @else
                 <p>aucune image</p>
             @endif
             <p>{{$apero->content}}</p>
+
+            <span>
+                {{$apero->date}}
+                Categorie: {{$apero->category->name}}
+                Tags:
+                @forelse($apero->tags as $tag)
+                    {{$tag->name}}
+                @empty
+                    Aucun tags
+                @endforelse
+            </span>
         </div>
-        <span>{{$apero->date}}</span>
-        <h4> Categorie: {{$apero->category->name}}</h4>
-        <h4>Tags:
-            @forelse($apero->tags as $tag)
-                {{$tag->name}}
-            @empty
-                <h4>Aucun tags</h4>
-            @endforelse
-        </h4>
     </div>
 @endsection

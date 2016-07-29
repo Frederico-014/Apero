@@ -37,7 +37,10 @@ class Apero extends Model
 
     public function scopesearch($query, $word)
     {
-        return $query   ->where('title','like','%'.$word.'%')
+        return $query   ->whereHas('tags',function ($q)use ($word){
+                            $q->where('name','like','%'.$word.'%');
+                        })
+                        ->orWhere('title','like','%'.$word.'%')
                         ->orWhere('content','like','%'.$word.'%');
 
     }

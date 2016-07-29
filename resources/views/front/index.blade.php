@@ -3,27 +3,36 @@
 
 @section('content')
     @forelse($aperos as $apero)
-        <div>
-            <h3><a href="{{url('search',$apero->id)}}">{{$apero->title}}</a></h3>
-            <div>
-                @if(!empty($apero->uri))
-                    <img src="{{url('assets',['images',$apero->uri])}}" alt="{{$apero->uri}}">
-                @else
-                    <p>aucune image</p>
-                @endif
-                <p>{{$apero->abstract}}<a href="{{url('search',$apero->id)}}">lire la suite</a></p>
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title"><a href="{{url('search',$apero->id)}}">{{$apero->title}}</a></h3>
             </div>
-            <span>{{$apero->date}}</span>
-            <h4> Categorie: {{$apero->category->name}}</h4>
-            <h4>Tags:
-            @forelse($apero->tags as $tag)
-                {{$tag->name}}
-            @empty
-                <h4>Aucun tags</h4>
-            @endforelse
-            </h4>
+            <div class="panel-body">
+                <div class="pres">
+                    @if(!empty($apero->uri))
+                        <img src="{{url('assets',['images',$apero->uri])}}" alt="{{$apero->uri}}">
+                    @else
+                        <p>aucune image</p>
+                    @endif
+                    <p>{{$apero->abstract}}<a href="{{url('search',$apero->id)}}">lire la suite</a></p>
+                </div>
+                <span>
+                Date: {{$apero->date}}
+                    Categorie: {{$apero->category->name}}
+                    Tags:
+                    @forelse($apero->tags as $tag)
+                        {{$tag->name}}
+                    @empty
+                        Aucun tags
+                    @endforelse
+                </span>
+            </div>
         </div>
     @empty
-        <h3>Aucun apéros à venir</h3>
+        <div class= panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Aucun apéros à venir</h3>
+            </div>
+        </div>
     @endforelse
 @endsection

@@ -21,22 +21,24 @@ class LoginController extends Controller
             $credentials=$request->only('email','password');
 
 
-
-            if (Auth::attempt($credentials))
+            if (Auth::attempt($credentials,$request->has('remember')))
             {
 
-
-                return redirect('/')->with(['message'=>'succes']);
+                Auth::user()->status='online';
+                Auth::user()->save();
+                return redirect('/')->with(['message'=>'Login Succes']);
             }
             else
             {
-                return back()->withInput($request->only('email'))->with(['message'=>'Fail']);
+                return back()->withInput($request->only('email'))->with(['message'=>' Login Fail']);
             }
         }
         return view('auth.login');
     }
     public function logout()
     {
+        Auth::user()->status='offline';
+        Auth::user()->save();
         Auth::logout();
 
         return redirect('/')->with(['message'=>'succes logout']);

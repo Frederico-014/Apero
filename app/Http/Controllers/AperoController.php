@@ -79,7 +79,7 @@ class AperoController extends Controller
         }
 
 
-        return redirect('admin/Apero')->with(['message' => 'apero create succesfull']);
+        return redirect('admin/Apero')->with(['message' => 'Apero create succesfull']);
     }
 
     /**
@@ -161,7 +161,7 @@ class AperoController extends Controller
         $apero->tags()->sync($tags);
 
 
-        return redirect('admin/Apero')->with(['message' => 'post updated with success']);
+        return redirect('admin/Apero')->with(['message' => 'Apéro updated with success']);
     }
 
     /**
@@ -179,7 +179,7 @@ class AperoController extends Controller
 
         $apero->delete();
 
-        return back()->with(['message' => 'post delete with success']);
+        return back()->with(['message' => 'Apéro delete with success']);
 
     }
 

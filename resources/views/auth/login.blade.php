@@ -4,7 +4,7 @@
 
         {{csrf_field()}}
         <p>
-            <label for="email">Email: </label>
+            <label  for="email">Email: </label>
             <input type="email" name="email" value="{{old('email')}}">
             @if($errors->has('email'))
                 <span class="admin_error">{{$errors->first('email')}}</span>
@@ -18,7 +18,7 @@
             @endif
         </p>
 
-        <input type="submit"><input type="checkbox">Se souvenir de moi
+        <input class="btn btn-success" type="submit"><input name="remember" type="checkbox">Se souvenir de moi
 
     </form>
 @endsection
