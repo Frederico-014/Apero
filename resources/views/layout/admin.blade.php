@@ -28,6 +28,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li {!! Request::url() == url('admin/Apero')? 'class="active"' : '' !!}><a
                             href="{{url('admin/Apero')}}">Accueil admin</a></li>
+                <li {!! Request::url() == url('admin/user')? 'class="active"' : '' !!}><a href="{{url('admin/user')}}">Gestion des utilisateurs</a></li>
                 <li><a>hello {{Auth::user()->username}}</a></li>
                 <li><a href="{{url('logout')}}">Se deconnecter</a></li>
             </ul>
@@ -38,13 +39,12 @@
     <div class="starter-template row ">
         <div class="col-xs-12 col-sm-6 col-lg-8">
             <section>
-                @include('admin.partials.flash_message')
                 @yield('content')
             </section>
         </div>
         <div class="col-xs-6 col-lg-4">
             <aside>
-                @include('partials.sidebar')
+                @include('admin.partials.flash_message')
             </aside>
         </div>
     </div>

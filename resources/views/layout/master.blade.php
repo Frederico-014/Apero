@@ -33,6 +33,7 @@
                 @if(Auth::guest())
                     <li {!! Request::url() == url('login')? 'class="active"' : '' !!}><a href="{{url('login')}}">Se
                             connecter</a></li>
+                    <li {!! Request::url() == url('inscription')? 'class="active"' : '' !!}><a href="{{url('inscription')}}">Inscription</a></li>
                 @else
                     @if(Auth::user() && Auth::user()->isAdmin())
                         <li><a href="{{route('admin.Apero.index')}}">Administration du site</a></li>

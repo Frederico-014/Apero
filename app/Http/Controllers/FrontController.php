@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class FrontController extends Controller
 {
@@ -101,6 +102,35 @@ class FrontController extends Controller
         $apero = Apero::find($id);
 
         return view('front.show', ['apero' => $apero]);
+    }
+
+    public function newUser()
+    {
+        return view('front.inscription');
+    }
+
+    public function createUser(Request $request)
+    {
+        $this->validate($request,[
+            'username'  =>'required',
+            'email' =>'required|email',
+            'password' =>'required|min:8'
+        ]);
+
+        $username=$request->username;
+        $email=$request->email;
+        $password=Hash::make($request->password);
+
+        $new_user=[
+            'username'=>$username,
+            'email'=>$email,
+            'password'=>$password,
+        ];
+
+        User::create($new_user);
+
+        return redirect('login')->with(['message'=>'Succes creation']);
+
     }
 
 

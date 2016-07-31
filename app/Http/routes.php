@@ -11,27 +11,31 @@
 |
 */
 
-Route::pattern('id','[1-9][0-9]*');
+Route::pattern('id', '[1-9][0-9]*');
 
-Route::get('/','FrontController@index');
+Route::get('/', 'FrontController@index');
 
-Route::get('new','FrontController@newEvent');
+Route::get('inscription', 'FrontController@newUser');
 
-Route::post('new','FrontController@createEvent');
+Route::post('inscription', 'FrontController@createUser');
 
-Route::any('search','FrontController@search');
+Route::get('new', 'FrontController@newEvent');
 
-Route::get('search/{id}','FrontController@showApero');
+Route::post('new', 'FrontController@createEvent');
+
+Route::any('search', 'FrontController@search');
+
+Route::get('search/{id}', 'FrontController@showApero');
 
 
-Route::any('login','LoginController@login');
+Route::any('login', 'LoginController@login');
 
-Route::get('logout','LoginController@logout');
+Route::get('logout', 'LoginController@logout');
 
 
-Route::group(['prefix'=>'admin','middleware'=>'auth'],function ()
-{
-    Route::resource('Apero','AperoController');
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
+    Route::resource('Apero', 'AperoController');
+    Route::resource('user', 'UserController');
 
 });
 
