@@ -8,8 +8,9 @@ use App\Tag;
 use App\User;
 use Illuminate\Http\Request;
 
+
 use App\Http\Requests;
-use Illuminate\Support\Facades\DB;
+use App\Http\Requests\AperoRequest;
 use Illuminate\Support\Facades\Hash;
 
 class FrontController extends Controller

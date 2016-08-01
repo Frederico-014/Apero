@@ -1,7 +1,7 @@
 <form action="{{url('admin',['user',$user->id])}}" method="post">
 
     {{csrf_field()}}
-    method_field('PUT')}}
+    {{method_field('PUT')}}
     @if (count($errors) > 0)
         <div class="alert alert-danger">
             <ul>

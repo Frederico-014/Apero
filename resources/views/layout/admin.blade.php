@@ -28,7 +28,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li {!! Request::url() == url('admin/Apero')? 'class="active"' : '' !!}><a
                             href="{{url('admin/Apero')}}">Accueil admin</a></li>
-                <li {!! Request::url() == url('admin/user')? 'class="active"' : '' !!}><a href="{{url('admin/user')}}">Gestion des utilisateurs</a></li>
+                <li {!! Request::url() == url('admin/user')? 'class="active"' : '' !!}><a href="{{url('admin/user')}}">Gestion des Utilisateurs</a></li>
                 <li><a>hello {{Auth::user()->username}}</a></li>
                 <li><a href="{{url('logout')}}">Se deconnecter</a></li>
             </ul>

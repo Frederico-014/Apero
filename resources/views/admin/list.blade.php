@@ -20,7 +20,7 @@
                         {{csrf_field()}}
                         {{method_field('PUT')}}
                         <input name="role" type="hidden"
-                               value="{{$user->status=='visitor'?'admin':'visitor'}}">
+                               value="{{$user->role=='visitor'?'admin':'visitor'}}">
                         <input class="btn btn-lg btn-info" type="submit" value="{{$user->role}}">
                     </form>
                 </td>
