@@ -13,43 +13,46 @@
                 </ul>
             </div>
         @endif
-        <p>
+        <div class="form-group">
             <label for="title">Titre </label>
-            <input id="title" type="text" name="title" value="{{old('title')}}">
-        </p>
-        <p>
+            <input class="form-control w33" id="title" type="text" name="title" value="{{old('title')}}">
+        </div>
+        <div class="form-group">
             <label for="date">Date </label>
-            <input id="date "type="date" name="date">
-        </p>
-        <p>
+            <input class="form-control w33" id="date " type="date" name="date">
+        </div>
+        <div class="form-group">
             <label for="abstract">abstract: </label><br/><br/>
-            <textarea id="abstract" name="abstract"  rows="5" cols="50">{{old('abstract')}}</textarea>
-        </p>
-        <p>
+            <textarea class="form-control" id="abstract" name="abstract" rows="5"
+                      cols="50">{{old('abstract')}}</textarea>
+        </div>
+        <div class="form-group">
             <label for="description">description: </label><br/><br/>
-            <textarea id="content" name="content"  rows="10" cols="50">{{old('content')}}</textarea>
-        </p>
-        <p>
+            <textarea class="form-control" id="content" name="content" rows="10" cols="50">{{old('content')}}</textarea>
+        </div>
+        <div class="form-group">
             <label for="Content">Category: </label>
-            <select id="category_id" name="category_id">
+            <select class="form-control w33" id="category_id" name="category_id">
                 <option value="{{null}}"></option>
                 @foreach($categories as $id => $title)
-                    <option value="{{$id}}" >{{$title}}</option>
+                    <option value="{{$id}}">{{$title}}</option>
                 @endforeach
             </select>
-        </p>
-        <p>
-            <label for="status">Status: </label>
-            <input type="radio" name="status" value="published">published
-            <input type="radio" name="status" value="unpublished" checked>unplublished
-        </p>
-        <p>
-            <label for="Content">Tags: </label><br/>
-
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="status">Status: </label>
+            <label class="radio-inline"><input type="radio" name="status" value="published">published</label>
+            <label class="radio-inline"><input type="radio" name="status" value="unpublished" checked>unplublished</label>
+        </div>
+        <div id="div_checkbox" class="form-group">
+            <label class="control-label" for="tags">Tags: </label>
             @foreach($tags as $id =>$name)
-                {{$name}}<input  id="{{$id}}" TYPE=CHECKBOX NAME="tags[]" value="{{$id}}" {{!empty(old('tags'))&& in_array($id,old('tags'))? 'checked':''}}><br/>
+                <label class="checkbox-inline">
+                    <input id="{{$id}}" TYPE=CHECKBOX NAME="tags[]"
+                           value="{{$id}}" {{!empty(old('tags'))&& in_array($id,old('tags'))? 'checked':''}}>{{$name}}
+                </label>
             @endforeach
-        </p>
+        </div>
         <p>
             <input name="picture" type="file">
             @if($errors->has('picture'))

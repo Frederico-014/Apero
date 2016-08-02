@@ -13,7 +13,7 @@ class AperoRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,12 +24,11 @@ class AperoRequest extends Request
     public function rules()
     {
         return [
-            'title'=> 'required',
-            'content'=> 'required',
             'category_id'=> 'integer',
             'status'=> 'in:published,unpublished',
             'tags.*'        =>'integer',
-            'picture'       =>'image|max:2000'
+            'picture'       =>'image|max:2000',
+            'pictureModify'       =>'image|max:2000',
         ];
     }
 }

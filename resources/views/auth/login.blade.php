@@ -1,24 +1,25 @@
 @extends('layout.master')
 @section('content')
-    <form action="{{url('login')}}" method="post">
+    <form class="form-inline" action="{{url('login')}}" method="post">
 
         {{csrf_field()}}
-        <p>
+        <div class="form-group">
             <label  for="email">Email: </label>
-            <input type="email" name="email" value="{{old('email')}}">
+            <input class="form-control" type="email" name="email" value="{{old('email')}}">
             @if($errors->has('email'))
                 <span class="admin_error">{{$errors->first('email')}}</span>
             @endif
-        </p>
-        <p>
+        </div>
+        <div class="form-group">
             <label for="password">Mdp: </label>
-            <input type="password" name="password">
+            <input class="form-control" type="password" name="password">
             @if($errors->has('password'))
                 <span class="admin_error">{{$errors->first('password')}}</span>
             @endif
-        </p>
-
-        <input class="btn btn-success" type="submit"><input name="remember" type="checkbox">Se souvenir de moi
-
+        </div>
+        <div class="checkbox">
+            <label><input name="remember" type="checkbox">Se souvenir de moi</label>
+        </div>
+        <input class="btn btn-success" type="submit" value="Se Connecter">
     </form>
 @endsection

@@ -30,13 +30,13 @@ class FrontController extends Controller
         return view('front.new', compact('categories'), compact('tags'));
     }
 
-    public function createEvent(Request $request)
+    public function createEvent(AperoRequest $request)
     {
 
         $this->validate($request, [
             'title' => 'required',
+            'description' => 'required',
             'email' => 'required|email',
-            'description' => 'required'
         ]);
 
 

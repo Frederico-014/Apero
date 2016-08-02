@@ -12,19 +12,18 @@
                 </ul>
             </div>
         @endif
-        <p>
+        <div class="form-group">
             <label for="username">Nom: </label>
-            <input type="text" name="username" value="{{old('username')}}">
-        </p>
-        <p>
+            <input class="form-control w33" type="text" name="username" value="{{old('username')}}">
+        </div>
+        <div class="form-group">
             <label for="email">Email: </label>
-            <input type="email" name="email" value="{{old('email')}}">
-        </p>
-        <p>
+            <input class="form-control w33" type="email" name="email" value="{{old('email')}}">
+        </div>
+        <div class="form-group">
             <label for="password">Mot de passe: </label>
-            <input type="password" name="password">
-        </p>
-
-        <input class="btn btn-success" type="submit">
+            <input class="form-control w33" type="password" name="password">
+        </div>
+        <button class="btn btn-success" type="submit">S'incrire</button>
     </form>
 @endsection
