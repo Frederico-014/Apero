@@ -18,6 +18,13 @@ class UsersTableSeeder extends Seeder
             'role'  =>'admin',
         ]);
 
+        DB::table('users')->insert([
+            'username'      =>'user',
+            'email'     =>'user@user.fr',
+            'password'  =>Hash::make('user'),
+            'role'  =>'visitor',
+        ]);
+
         factory(App\User::class, 2)->create();
 
 
